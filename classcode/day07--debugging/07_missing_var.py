@@ -2,6 +2,6 @@
 
 will = "will is a..."
 
-print wi11
+print wi11 #typo
 
 will += "student"

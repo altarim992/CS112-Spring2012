@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-n = it(raw_inpt("Enter a number: "))
+n = it(raw_inpt("Enter a number: ")) #typos
 
 if n%2 == 0:
     print "n is even"

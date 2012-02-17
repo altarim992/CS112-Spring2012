@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-n = int(raw_input("Enter a number: ))
+n = int(raw_input("Enter a number: )) 
+#^needs end quotation
 
 if n%2 == 0:
     print "n is even"
