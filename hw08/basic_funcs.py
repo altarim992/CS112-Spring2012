@@ -11,9 +11,13 @@
 #   >>> greeter("WORLD")
 #   hello, world
 
-# def greeter(name):
+def greeter(name):
+	print "hello,", name.lower()
 
 
+
+#box(int(raw_input("Width: ")), int(raw_input("Height: ")))
+#greeter(raw_input("Enter your name: "))
 # Draw a box
 #    given a width and a height, draw a box in the terminal.  Use print statements
 #
@@ -30,7 +34,25 @@
 #    | |
 #    +-+
 
-# def box(w,h):
+def box(w,h):
+	horizontal = "+" + "-" * (w - 2) + "+"
+	vertical = "|" + " " * (w - 2) + "|"
+	if type(w) == 'str' or type(h) == 'str':
+		print "Error: Invalid Dimensions"
+	elif w <= 0 or h <= 0:
+		print "Error: Invalid Dimensions"
+	else:
+		if w == 1:
+			horizontal = "+"
+			vertical = "|"
+		print horizontal
+		h = h - 1
+		while h > 1:
+			print vertical
+			h = h - 1
+			if h == 1:
+				print horizontal
+				break
 
 
 
@@ -51,4 +73,3 @@
 #       | |
 
 # def tree()
-
