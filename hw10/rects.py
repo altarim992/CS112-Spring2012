@@ -23,7 +23,8 @@ Terms:
 
   Rectangle:  pygame.Rect
 """
-
+import pygame
+from pygame.locals import *
 from pygame import Rect
 
 # 1. poly_in_rect
@@ -33,8 +34,26 @@ from pygame import Rect
 #      returns:  True or False
 
 def poly_in_rect(poly, rect):
-    "check if polygon is within rectangle"
-
+    in_rect = True
+    xlist = []
+    ylist = []
+    for x, y in poly:
+        xlist.append(x)
+        ylist.append(y)
+    for xval in xlist:
+        if xval < rect[0]:
+            in_rect = False
+        elif xval > (rect[2] + rect[0]):
+            in_rect = False
+    for yval in ylist:
+        if yval < rect[1]:
+            in_rect = False
+        elif yval > (rect[3] + rect[1]):
+            in_rect = False
+    if in_rect == False:
+        return False
+    else:
+        return True
 
 
 # 2. surround_poly
@@ -44,7 +63,15 @@ def poly_in_rect(poly, rect):
 #
 #      returns:  pygame.Rect
 
-def surround_poly(poly):
-    "create a rectangle which surounds a polygon"
-
+def surround_poly(poly): #"create a rectangle which surounds a polygon"       
+    xlist = []
+    ylist = []
+    for x, y in poly:
+        xlist.append(x)
+        ylist.append(y)
+    topx = min(xlist)
+    topy = min(ylist)
+    width = max(xlist) - min(xlist)
+    height = max(ylist) - min(ylist)
+    return pygame.Rect(topx, topy, width, height)
 
